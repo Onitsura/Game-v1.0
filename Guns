@@ -1,0 +1,22 @@
+package Game;
+
+public interface Guns {
+	
+	void reload();
+	boolean haveEnoughExperience(Character character);
+	int getDamage();
+	int getAmmo();
+	int getExperience();
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
