@@ -1,0 +1,132 @@
+package Game;
+
+    public class Immortal extends Necrons {
+
+        private String name;
+        private int health = 270;
+        private int attackPower = 30;
+        private int heal = 150;
+        private int experience = 0;
+        private int armor = 0;
+
+        public Immortal(String name) {
+            this.name = name;
+        }
+
+
+        public void useShield(Shield shield) {
+            shield.blockDamage(this);
+            System.out.println(this.getName() + " picked up a shield.\n*" + this.getName() + "'s Armor now is: " + this.armor + "*");
+
+        }
+
+        public void attackWithWeapon(Character opponent, FireArms weapon) {
+            weapon.shoot(this, weapon);
+            this.attack(opponent);
+
+        }
+
+        public void shareHealth(Necrons character) {
+
+            this.health -= 50;
+            System.out.println(this.getName() + " drain your oil to " + character.getName() + ". \n*-50 HP*\n" + this.getName() + " have " + this.getHealth() + " HP left.");
+            character.setHealth(50);
+            System.out.println(character.getName() + " get 50 HP.\n" + character.getHealth() + " HP left\n");
+
+        }
+
+        public int decreaseShield(int opponentAttackPower) {
+
+            return armor -= opponentAttackPower;
+
+        }
+
+        @Override
+        public int decreaseHealth(int opponentAttackPower) {
+            if (this.decreaseShield(opponentAttackPower) <= 0) {
+                return health += this.decreaseShield(opponentAttackPower);
+            } else {
+                return health;
+            }
+        }
+
+        @Override
+        public void setArmor(int armor) {
+            this.armor += armor;
+        }
+
+        @Override
+        public int healUp() {
+            this.status(this);
+            System.out.println("*HEALED FOR 150 HP*\n");
+            return health += heal;
+
+        }
+
+        @Override
+        public void attack(Character opponent) {
+            this.status(opponent);
+            opponent.decreaseHealth(attackPower);
+            System.out.println(opponent.getName() + "'ve been attacked by " + this.getName() + ".");
+            System.out.println(opponent.getName() + " have " + opponent.getHealth() + " hp left.\n");
+            this.gainExperience();
+            this.status(opponent);
+        }
+
+        @Override
+        public void jump() {
+            System.out.println("*You cannot jump, you're necron, c'mon*");
+        }
+
+        @Override
+        public void run() {
+            System.out.println("Walk slowly");
+
+        }
+
+
+        @Override
+        public void gainExperience() {
+            experience += 15;
+        }
+
+        @Override
+        public int getHealth() {
+            return health;
+        }
+
+        @Override
+        public String getName() {
+
+            return name;
+        }
+
+        @Override
+        public int getAttackPower() {
+
+            return attackPower;
+        }
+
+        @Override
+        public int getHeal() {
+
+            return heal;
+        }
+
+        @Override
+        public int getExperience() {
+            return experience;
+        }
+
+        @Override
+        public void setAttackPower(int attackPower) {
+            this.attackPower = attackPower;
+        }
+
+        @Override
+        public void setHealth(int health) {
+            this.health += health;
+        }
+
+
+    }
