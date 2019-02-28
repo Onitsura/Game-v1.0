@@ -1,0 +1,9 @@
+package Game;
+
+public abstract class Steel implements Guns {
+	int damage;
+	int needExperience;
+	int canBlockDamage;
+	
+	
+}
