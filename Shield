@@ -1,0 +1,43 @@
+package Game;
+
+    public class Shield extends Steel {
+        int armor = 120;
+        int needExperience = 30;
+
+
+        public void blockDamage(Necrons character) {
+            character.setArmor(armor);
+        }
+
+
+        @Override
+        public boolean haveEnoughExperience(Character character) {
+            if (character.getExperience() >= needExperience) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        @Override
+        public int getDamage() {
+            return 0;
+        }
+
+        @Override
+        public int getAmmo() {
+            return 0;
+        }
+
+        @Override
+        public int getExperience() {
+            return 0;
+        }
+
+        @Override
+        public void reload() {
+
+        }
+
+
+    }
