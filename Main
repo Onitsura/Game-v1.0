@@ -1,0 +1,23 @@
+package Game;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Immortal Alan = new Immortal("Alan");
+		Immortal Stewart = new Immortal( "Stewart");
+		GaussGun GaussGunAlan = new GaussGun();
+		GaussGun GaussGunStewart = new GaussGun();
+		Shield shield = new Shield();
+		Alan.say();
+		Alan.attack(Stewart);
+		Alan.attackWithWeapon(Stewart, GaussGunAlan);
+		Stewart.attackWithWeapon(Alan, GaussGunStewart);
+		
+		Alan.shareHealth(Stewart);
+		Alan.useShield(shield);
+		Stewart.attackWithWeapon(Alan, GaussGunStewart);
+		Stewart.attackWithWeapon(Alan, GaussGunStewart);
+		
+	}
+
+}
