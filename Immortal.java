@@ -3,9 +3,8 @@ package Necrons;
 import Game.Constants;
 import Game.ICharacter;
 import Guns.GaussGun;
-import Guns.FireArms;
 import Guns.Shield;
-import Guns.IGuns;
+
 
     public class Immortal extends Necrons {
 
