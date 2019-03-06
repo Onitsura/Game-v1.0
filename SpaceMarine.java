@@ -14,7 +14,7 @@ public class SpaceMarine extends Chaos {
     private int heal;
     private int experience;
     private int curse = Constants.CHAOS_CURSE;
-    Bolter weapon = new Bolter();
+    Bolter weapon;
 	
 	public SpaceMarine(String name, Bolter weapon) {
 		this.weapon = weapon;
